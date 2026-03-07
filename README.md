@@ -28,12 +28,19 @@ npm run build
 npm run preview
 ```
 
-## Deploy to GitHub Pages (accountmap.org)
+## Deploy to Cloudflare Pages (accountmap.org)
 
-1. **Enable GitHub Pages**: In the repo, go to **Settings → Pages**. Under "Build and deployment", set **Source** to **GitHub Actions**.
-2. **Custom domain**: In the same Pages settings, set **Custom domain** to `accountmap.org` (and add the CNAME / DNS records as GitHub instructs).
-3. **Push to `main`**: The workflow in `.github/workflows/deploy.yml` runs on every push to `main` and deploys the built site to the root of the domain.
-4. **Site URL**: The site will be at **https://accountmap.org**.
+This project is set up for [Cloudflare Pages](https://developers.cloudflare.com/pages/) with the [GitHub integration](https://developers.cloudflare.com/pages/configuration/git-integration/github-integration/).
+
+1. **Connect the repo**: In [Cloudflare Dashboard](https://dash.cloudflare.com) go to **Workers & Pages → Create application → Pages → Connect to Git**. Choose this GitHub repo and authorize Cloudflare. (If you were previously on GitHub Pages, turn it off in the repo **Settings → Pages** to avoid duplicate deployments.)
+2. **Build settings** (usually auto-detected; set manually if needed):
+   - **Build command:** `npm run build`
+   - **Build output directory:** `build`
+   - **Root directory:** (leave empty)
+   - **Node.js version:** 20 (optional; repo includes `.nvmrc`)
+3. **Deploy**: Save the project. Every push to `main` (and optional previews for PRs) will trigger a build and deploy.
+4. **Custom domain**: In the Pages project, go to **Custom domains** and add `accountmap.org`. Follow Cloudflare’s DNS instructions (CNAME or proxy).
+5. **Site URL**: The site will be at **https://accountmap.org** (and the default `*.pages.dev` URL until the custom domain is set).
 
 ## Customization
 

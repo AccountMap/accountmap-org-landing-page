@@ -1,0 +1,4 @@
+# Cloudflare Pages (static site from SvelteKit adapter-static)
+# Used by the GitHub integration and wrangler pages deploy.
+name = "accountmap-org-landing-page"
+pages_build_output_dir = "build"
