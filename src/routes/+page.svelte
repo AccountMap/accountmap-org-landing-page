@@ -1,5 +1,6 @@
 <script lang="ts">
   import { onMount } from 'svelte';
+  import { absoluteUrl, siteMetadata } from '$lib/site';
 
   const repo = 'AccountMap';
   const demoUrl = 'https://demo.accountmap.org';
@@ -23,7 +24,22 @@
 </script>
 
 <svelte:head>
-  <title>AccountMap</title>
+  <title>{siteMetadata.title}</title>
+  <meta name="description" content={siteMetadata.description} />
+  <link rel="canonical" href={absoluteUrl('/')} />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content={siteMetadata.name} />
+  <meta property="og:locale" content={siteMetadata.locale} />
+  <meta property="og:title" content={siteMetadata.title} />
+  <meta property="og:description" content={siteMetadata.description} />
+  <meta property="og:url" content={absoluteUrl('/')} />
+  <meta property="og:image" content={absoluteUrl(siteMetadata.socialImagePath)} />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={siteMetadata.title} />
+  <meta name="twitter:description" content={siteMetadata.description} />
+  <meta name="twitter:image" content={absoluteUrl(siteMetadata.socialImagePath)} />
 </svelte:head>
 
 <main class="min-h-screen bg-[#0a0a0c] text-white selection:bg-cyan-500/30">
