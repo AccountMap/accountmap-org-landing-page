@@ -5,7 +5,9 @@
   "scripts": {
     "dev": "vite dev",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "check:seo": "npm run build && node --test tests/seo.test.mjs",
+    "test": "npm run check:seo"
   },
   "devDependencies": {
     "@sveltejs/adapter-auto": "^3.0.0",

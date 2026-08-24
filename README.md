@@ -28,6 +28,15 @@ npm run build
 npm run preview
 ```
 
+## Verify SEO output
+
+```bash
+npm test
+```
+
+The check builds the static site and verifies its page metadata, canonical URL,
+generated `sitemap.xml`, and `robots.txt` sitemap declaration.
+
 ## Deploy to Cloudflare Pages (accountmap.org)
 
 This project is set up for [Cloudflare Pages](https://developers.cloudflare.com/pages/) with the [GitHub integration](https://developers.cloudflare.com/pages/configuration/git-integration/github-integration/).
